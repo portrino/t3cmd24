@@ -1,0 +1,82 @@
+########################
+# TYPO3 CMS
+# global ignore file
+########################
+#
+# Don't ignore .rej and .orig as we want to see/clean files after conflict resolution.
+#
+# For local exclude patterns please edit .git/info/exclude.
+#
+########################
+#
+# Ignore temporary files (left by editors and OS)
+*~
+*.bak
+*.swp
+.DS_Store
+#
+# Ignore by common IDEs used directories/files
+nbproject
+*.idea
+*.project
+.buildpath
+.settings
+.TemporaryItems
+.webprj
+#
+# Temporary files and folders
+.cache
+.commit
+.php_cs.cache
+.sass-cache
+.session
+cghooks.lock
+phantomjsdriver.log
+#
+# CSS map files
+*.css.map
+#
+# Ignore build stuff
+/Build/bower_components/*
+/Build/node_modules/*
+/Build/JavaScript
+/Build/typings/*
+!/Build/typings/no-def*
+#
+# TypeScript stuff
+.baseDir.ts
+.tscache
+#
+########################
+#
+# Project related
+#
+########################
+#
+# Ignore composer generated/ downloaded files
+/bin/
+/vendor/
+#
+# Ignore local configuration and cache files
+/.env
+/var/
+#
+# Ignore build stuff from "site package"
+/packages/site_package/**/node_modules/*
+#
+# Ignore everything in the webroot except typo3conf/ (and other project relevant stuff)
+/public/*
+!/public/typo3conf/
+!/public/.ht*
+#
+# Ignore everything in the typo3conf/ directory, except the configuration files
+/public/typo3conf/*
+!/public/typo3conf/AdditionalConfiguration.php
+!/public/typo3conf/LocalConfiguration.php
+#
+########################
+#
+# Global excludes
+#
+########################
+!**/.gitkeep

@@ -1,0 +1,53 @@
+#!/bin/bash
+
+## Description: Launch a browser with latest backstop results
+## Usage: backstop-results
+## Example: "ddev backstop-results"
+
+IDENTIFIER=""
+
+# Iterate through each argument
+while [[ $# -gt 0 ]]; do
+  case "$1" in
+    --id|-i)
+      IDENTIFIER="$2"
+      shift 1  # Move to the next argument
+      ;;
+    --help|-h)
+      # Add help instructions here
+      ;;
+    *)
+      echo "Unknown option: $1"
+      ;;
+  esac
+
+  shift 1  # Move to the next argument
+done
+
+if [[ "${IDENTIFIER}" == "" ]]; then
+  echo "Error: No --id argument given."
+  exit
+fi
+
+HTML_REPORT_PATH="${DDEV_APPROOT}/tests/backstop/backstop_data/${IDENTIFIER}/html_report/index.html"
+
+if [[ ! -f "${HTML_REPORT_PATH}" ]]; then
+  echo "Error: No HTML report found. Make sure the backstop test has been run and the identifier is correct."
+  echo ""
+  echo "To generate a report, you once have to generate reference images and afterwards run test(s) against those references."
+  echo "  ddev backstop reference --config=backstop.js --id=${IDENTIFIER}"
+  echo "  ddev backstop test --config=backstop.js --id=${IDENTIFIER}"
+  exit
+fi
+
+case $OSTYPE in
+  linux-gnu)
+    xdg-open ${HTML_REPORT_PATH}
+    ;;
+  "darwin"*)
+    open ${HTML_REPORT_PATH}
+    ;;
+  "win*"* | "msys"*)
+    start ${HTML_REPORT_PATH}
+    ;;
+esac

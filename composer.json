@@ -1,0 +1,57 @@
+{
+  "name": "portrino/t3cmd24",
+  "require": {
+    "typo3/cms-base-distribution": "^11.5",
+    "typo3/cms-introduction": "^4.4",
+
+    "bk2k/bootstrap-package": "^12.0",
+    "b13/container": "^2.0",
+    "helhum/typo3-console": "^7.0"
+  },
+  "require-dev": {
+    "roave/security-advisories": "dev-latest"
+  },
+  "config": {
+    "allow-plugins": {
+      "typo3/class-alias-loader": true,
+      "typo3/cms-composer-installers": true
+    },
+    "bin-dir": "bin",
+    "github-protocols": [
+      "https"
+    ],
+    "optimize-autoloader": true,
+    "preferred-install": "dist",
+    "secure-http": true
+  },
+  "extra": {
+    "typo3/cms": {
+      "web-dir": "public"
+    }
+  },
+  "scripts": {
+    "post-autoload-dump": [
+      "[ ! -d ./public/fileadmin/ ] && ./bin/typo3cms install:setup --force --no-interaction && ./bin/typo3cms extension:setup || echo 'Skipping forced TYPO3 auto-installation!'",
+      "[ -d ./public/fileadmin/ ] && composer run-script post-script:typo3-console-stack || echo 'Skipping post-script:typo3-console-stack - First install?!'",
+      "[ -d ./public/fileadmin/ ] && [ $TYPO3_PENDING_UPGRADE -eq 0 ] && composer run-script post-script:database-migrations || echo 'Skipping post-script:database-migrations - First install?!'"
+    ],
+
+    "post-script:database-migrations": [
+      "@typo3cms:database-update-schema"
+    ],
+    "post-script:typo3-console-stack": [
+      "@typo3cms:fix-folder-structure",
+      "@typo3cms:flush-system-cache"
+    ],
+
+    "typo3cms:database-update-schema": [
+      "[ -e ./bin/typo3cms ] && ./bin/typo3cms database:updateschema *.add,*.change || echo 'No typo3cms binary found!'"
+    ],
+    "typo3cms:fix-folder-structure": [
+      "[ -e ./bin/typo3cms ] && ./bin/typo3cms install:fixfolderstructure || echo 'No typo3cms binary found!'"
+    ],
+    "typo3cms:flush-system-cache": [
+      "[ -e ./bin/typo3cms ] && ./bin/typo3cms cache:flushtags system || echo 'No typo3cms binary found!'"
+    ]
+  }
+}
