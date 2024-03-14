@@ -34,5 +34,20 @@ services:
     networks:
       ddev_default: null
       default: null
-    # external_links:
-    #   - ddev-router:anotherhost.ddev.site
+    external_links:
+      - ddev-router:${DDEV_SITENAME}.${DDEV_TLD}
+
+  backstop-results:
+    container_name: ddev-${DDEV_SITENAME}-backstop-results
+    image: httpd:2.4
+    volumes:
+      - ../tests/backstop/backstop_data:/usr/local/apache2/htdocs
+    labels:
+      com.ddev.site-name: ${DDEV_SITENAME}
+      com.ddev.approot: $DDEV_APPROOT
+    environment:
+      - VIRTUAL_HOST=$DDEV_HOSTNAME
+      - HTTP_EXPOSE=8086:80
+      - HTTPS_EXPOSE=8087:80
+    expose:
+      - 80

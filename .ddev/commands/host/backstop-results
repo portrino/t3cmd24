@@ -4,6 +4,28 @@
 ## Usage: backstop-results
 ## Example: "ddev backstop-results"
 
+if [ "${DDEV_PROJECT_STATUS-running}" != "running" ]; then
+  echo "Project ${DDEV_PROJECT} is not running, starting it"
+  ddev start
+fi
+
+DDEV_BACKSTOP_RESULTS_PORT=8086
+DDEV_BACKSTOP_RESULTS_HTTPS_PORT=8087
+
+HTML_REPORT_URL=${DDEV_PRIMARY_URL}
+HTTPS=""
+if [ ${DDEV_PRIMARY_URL%://*} = "https" ]; then HTTPS=true; fi
+
+if [[ ! -z "${GITPOD_INSTANCE_ID}" ]] || [[ "${CODESPACES}" == "true" ]]; then
+  HTML_REPORT_URL="${HTML_REPORT_URL/-${DDEV_HOST_WEBSERVER_PORT}/-${DDEV_BACKSTOP_RESULTS_PORT}}"
+else
+  if [ "${HTTPS}" = "" ]; then
+    HTML_REPORT_URL="${HTML_REPORT_URL%:[0-9]*}:${DDEV_BACKSTOP_RESULTS_PORT}"
+  else
+    HTML_REPORT_URL="${HTML_REPORT_URL%:[0-9]*}:${DDEV_BACKSTOP_RESULTS_HTTPS_PORT}"
+  fi
+fi
+
 IDENTIFIER=""
 
 # Iterate through each argument
@@ -30,9 +52,10 @@ if [[ "${IDENTIFIER}" == "" ]]; then
 fi
 
 HTML_REPORT_PATH="${DDEV_APPROOT}/tests/backstop/backstop_data/${IDENTIFIER}/html_report/index.html"
+HTML_REPORT_URL="${HTML_REPORT_URL}/${IDENTIFIER}/html_report/index.html"
 
 if [[ ! -f "${HTML_REPORT_PATH}" ]]; then
-  echo "Error: No HTML report found. Make sure the backstop test has been run and the identifier is correct."
+  echo "Error: No HTML report found. Make sure the backstop test has been run and/or the given identifier is correct."
   echo ""
   echo "To generate a report, you once have to generate reference images and afterwards run test(s) against those references."
   echo "  ddev backstop reference --config=backstop.js --id=${IDENTIFIER}"
@@ -42,12 +65,16 @@ fi
 
 case $OSTYPE in
   linux-gnu)
-    xdg-open ${HTML_REPORT_PATH}
+    if [[ ! -z "${GITPOD_INSTANCE_ID}" ]]; then
+        gp preview ${HTML_REPORT_URL}
+    else
+        xdg-open ${HTML_REPORT_URL}
+    fi
     ;;
   "darwin"*)
-    open ${HTML_REPORT_PATH}
+    open ${HTML_REPORT_URL}
     ;;
   "win*"* | "msys"*)
-    start ${HTML_REPORT_PATH}
+    start ${HTML_REPORT_URL}
     ;;
 esac
