@@ -1,7 +1,7 @@
 name: t3cmd24
 type: typo3
 docroot: public
-php_version: "7.4"
+php_version: "8.2"
 webserver_type: apache-fpm
 xdebug_enabled: false
 additional_hostnames: []
@@ -12,6 +12,7 @@ database:
 use_dns_when_possible: true
 timezone: Europe/Berlin
 composer_version: "2"
+disable_settings_management: true
 web_environment:
     - TYPO3_CONTEXT=Development/Local
     - TYPO3_INSTALL_DB_USER=db

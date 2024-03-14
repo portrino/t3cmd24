@@ -2,7 +2,6 @@
 return [
     'BE' => [
         'debug' => true,
-        'explicitADmode' => 'explicitAllow',
         'installToolPassword' => '$argon2i$v=19$m=65536,t=16,p=1$SFpBUVovTlA5SVc5OGZCUA$MeJViP/o7wkkcfTO/PmQRma840cIkfnuFe3bTRSas/I',
         'passwordHashing' => [
             'className' => 'TYPO3\\CMS\\Core\\Crypto\\PasswordHashing\\Argon2iPasswordHash',
@@ -41,28 +40,6 @@ return [
             'automaticInstallation' => '1',
             'offlineMode' => '0',
         ],
-        'indexed_search' => [
-            'catdoc' => '/usr/bin/',
-            'debugMode' => '0',
-            'deleteFromIndexAfterEditing' => '1',
-            'disableFrontendIndexing' => '0',
-            'enableMetaphoneSearch' => '1',
-            'flagBitMask' => '192',
-            'fullTextDataLength' => '0',
-            'ignoreExtensions' => '',
-            'indexExternalURLs' => '0',
-            'maxAge' => '0',
-            'maxExternalFiles' => '5',
-            'minAge' => '24',
-            'pdf_mode' => '20',
-            'pdftools' => '/usr/bin/',
-            'ppthtml' => '/usr/bin/',
-            'unrtf' => '/usr/bin/',
-            'unzip' => '/usr/bin/',
-            'useCrawlerForExternalFiles' => '0',
-            'useMysqlFulltext' => '0',
-            'xlhtml' => '/usr/bin/',
-        ],
     ],
     'FE' => [
         'cacheHash' => [
@@ -82,7 +59,6 @@ return [
         'processor_effects' => false,
         'processor_enabled' => true,
         'processor_path' => '/usr/bin/',
-        'processor_path_lzw' => '/usr/bin/',
     ],
     'LOG' => [
         'TYPO3' => [
@@ -125,12 +101,6 @@ return [
                         'compression' => true,
                     ],
                 ],
-                'pagesection' => [
-                    'backend' => 'TYPO3\\CMS\\Core\\Cache\\Backend\\Typo3DatabaseBackend',
-                    'options' => [
-                        'compression' => true,
-                    ],
-                ],
                 'rootline' => [
                     'backend' => 'TYPO3\\CMS\\Core\\Cache\\Backend\\Typo3DatabaseBackend',
                     'options' => [
@@ -144,6 +114,7 @@ return [
         'encryptionKey' => 'a0cb208397e2f9b981e9596c97e47be4a31784829ca3094f23c584fd3fc5bfa31c46cb190659a68cfeefffa1965136ac',
         'exceptionalErrors' => 12290,
         'features' => [
+            'security.usePasswordPolicyForFrontendUsers' => true,
             'yamlImportsFollowDeclarationOrder' => true,
         ],
         'sitename' => 'T3CMD',
