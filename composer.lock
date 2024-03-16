@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "6a935503eee98e00451504e8869d1861",
+    "content-hash": "4e7aae52c7eab4ce02da463f046a3e65",
     "packages": [
         {
             "name": "b13/container",
@@ -125,16 +125,16 @@
         },
         {
             "name": "bk2k/bootstrap-package",
-            "version": "14.0.7",
+            "version": "13.0.5",
             "source": {
                 "type": "git",
                 "url": "https://github.com/benjaminkott/bootstrap_package.git",
-                "reference": "45333312fceb60fc96a27fd648e8a5547dc230cc"
+                "reference": "62f3b9e180dda55079ea86edfd1b88b176494979"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/benjaminkott/bootstrap_package/zipball/45333312fceb60fc96a27fd648e8a5547dc230cc",
-                "reference": "45333312fceb60fc96a27fd648e8a5547dc230cc",
+                "url": "https://api.github.com/repos/benjaminkott/bootstrap_package/zipball/62f3b9e180dda55079ea86edfd1b88b176494979",
+                "reference": "62f3b9e180dda55079ea86edfd1b88b176494979",
                 "shasum": ""
             },
             "require": {
@@ -182,7 +182,7 @@
             "type": "typo3-cms-extension",
             "extra": {
                 "branch-alias": {
-                    "dev-BP_14_0": "14.0.x-dev"
+                    "dev-BP_13_0": "13.0.x-dev"
                 },
                 "typo3/cms": {
                     "extension-key": "bootstrap_package",
@@ -230,7 +230,7 @@
                     "type": "custom"
                 }
             ],
-            "time": "2023-08-14T14:44:23+00:00"
+            "time": "2023-06-30T13:45:52+00:00"
         },
         {
             "name": "christian-riesen/base32",
@@ -6387,6 +6387,56 @@
             "time": "2024-03-12T08:15:14+00:00"
         },
         {
+            "name": "typo3/cms-filemetadata",
+            "version": "v12.4.12",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/TYPO3-CMS/filemetadata.git",
+                "reference": "e50bc85d255d5036599c035b076f340f4f296f59"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/TYPO3-CMS/filemetadata/zipball/e50bc85d255d5036599c035b076f340f4f296f59",
+                "reference": "e50bc85d255d5036599c035b076f340f4f296f59",
+                "shasum": ""
+            },
+            "require": {
+                "typo3/cms-core": "12.4.12"
+            },
+            "conflict": {
+                "typo3/cms": "*"
+            },
+            "type": "typo3-cms-framework",
+            "extra": {
+                "branch-alias": {
+                    "dev-main": "12.4.x-dev"
+                },
+                "typo3/cms": {
+                    "extension-key": "filemetadata"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "GPL-2.0-or-later"
+            ],
+            "authors": [
+                {
+                    "name": "TYPO3 Core Team",
+                    "email": "typo3cms@typo3.org",
+                    "role": "Developer"
+                }
+            ],
+            "description": "TYPO3 CMS File Metadata - Adds additional metadata to file management.",
+            "homepage": "https://typo3.org",
+            "support": {
+                "chat": "https://typo3.org/help",
+                "docs": "https://docs.typo3.org",
+                "issues": "https://forge.typo3.org",
+                "source": "https://github.com/typo3/typo3"
+            },
+            "time": "2024-03-12T08:15:14+00:00"
+        },
+        {
             "name": "typo3/cms-fluid",
             "version": "v12.4.12",
             "source": {
@@ -6705,6 +6755,64 @@
             "time": "2024-03-12T08:15:14+00:00"
         },
         {
+            "name": "typo3/cms-indexed-search",
+            "version": "v12.4.12",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/TYPO3-CMS/indexed_search.git",
+                "reference": "4df29e827a759cf07a5f6f9375e0d768c2f8d7a5"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/TYPO3-CMS/indexed_search/zipball/4df29e827a759cf07a5f6f9375e0d768c2f8d7a5",
+                "reference": "4df29e827a759cf07a5f6f9375e0d768c2f8d7a5",
+                "shasum": ""
+            },
+            "require": {
+                "typo3/cms-core": "12.4.12"
+            },
+            "conflict": {
+                "typo3/cms": "*"
+            },
+            "suggest": {
+                "typo3/cms-scheduler": "For garbage collection of search statistics"
+            },
+            "type": "typo3-cms-framework",
+            "extra": {
+                "branch-alias": {
+                    "dev-main": "12.4.x-dev"
+                },
+                "typo3/cms": {
+                    "extension-key": "indexed_search"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "TYPO3\\CMS\\IndexedSearch\\": "Classes/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "GPL-2.0-or-later"
+            ],
+            "authors": [
+                {
+                    "name": "TYPO3 Core Team",
+                    "email": "typo3cms@typo3.org",
+                    "role": "Developer"
+                }
+            ],
+            "description": "TYPO3 CMS Indexed Search - Provides indexing functionality for TYPO3 pages and records as well as files including PDF, Word, HTML and plain text.",
+            "homepage": "https://typo3.org",
+            "support": {
+                "chat": "https://typo3.org/help",
+                "docs": "https://docs.typo3.org/c/typo3/cms-indexed-search/main/en-us",
+                "issues": "https://forge.typo3.org",
+                "source": "https://github.com/typo3/typo3"
+            },
+            "time": "2024-03-12T08:15:14+00:00"
+        },
+        {
             "name": "typo3/cms-info",
             "version": "v12.4.12",
             "source": {
@@ -6832,6 +6940,75 @@
                 "source": "https://github.com/typo3/typo3"
             },
             "time": "2024-03-12T08:15:14+00:00"
+        },
+        {
+            "name": "typo3/cms-introduction",
+            "version": "4.6.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/FriendsOfTYPO3/introduction.git",
+                "reference": "61ffb7b9d11aa941de6ec8c1394adc0a9025730e"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/FriendsOfTYPO3/introduction/zipball/61ffb7b9d11aa941de6ec8c1394adc0a9025730e",
+                "reference": "61ffb7b9d11aa941de6ec8c1394adc0a9025730e",
+                "shasum": ""
+            },
+            "require": {
+                "bk2k/bootstrap-package": "^13.0.1",
+                "ext-pdo": "*",
+                "php": "^8.1",
+                "typo3/cms-beuser": "^12.3 || 12.*.*@dev",
+                "typo3/cms-core": "^12.3 || 12.*.*@dev",
+                "typo3/cms-extensionmanager": "^12.3 || 12.*.*@dev",
+                "typo3/cms-felogin": "^12.3 || 12.*.*@dev",
+                "typo3/cms-filemetadata": "^12.3 || 12.*.*@dev",
+                "typo3/cms-form": "^12.3 || 12.*.*@dev",
+                "typo3/cms-impexp": "^12.3 || 12.*.*@dev",
+                "typo3/cms-indexed-search": "^12.3 || 12.*.*@dev",
+                "typo3/cms-tstemplate": "^12.3 || 12.*.*@dev",
+                "typo3/minimal": "^12.0 || 12.*.*@dev"
+            },
+            "require-dev": {
+                "typo3/cms-belog": "^12.3 || 12.*.*@dev",
+                "typo3/cms-lowlevel": "^12.3 || 12.*.*@dev",
+                "typo3/cms-scheduler": "^12.3 || 12.*.*@dev",
+                "typo3/cms-setup": "^12.3 || 12.*.*@dev",
+                "typo3/coding-standards": "^0.7.1"
+            },
+            "type": "typo3-cms-extension",
+            "extra": {
+                "branch-alias": {
+                    "dev-main": "4.6.x-dev"
+                },
+                "typo3/cms": {
+                    "extension-key": "introduction",
+                    "web-dir": ".build/public"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "TYPO3\\CMS\\Introduction\\": "Classes"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "GPL-2.0-or-later"
+            ],
+            "description": "The Official TYPO3 Introduction Package",
+            "homepage": "https://extensions.typo3.org/extension/introduction",
+            "keywords": [
+                "TYPO3 CMS",
+                "bootstrap",
+                "introduction"
+            ],
+            "support": {
+                "docs": "https://docs.typo3.org/p/typo3/cms-introduction/main/en-us/",
+                "issues": "https://github.com/FriendsOfTYPO3/introduction/issues",
+                "source": "https://github.com/FriendsOfTYPO3/introduction"
+            },
+            "time": "2023-04-25T15:01:04+00:00"
         },
         {
             "name": "typo3/cms-reactions",
@@ -7415,6 +7592,56 @@
                 "source": "https://github.com/TYPO3/html-sanitizer/tree/v2.1.4"
             },
             "time": "2023-11-14T07:41:08+00:00"
+        },
+        {
+            "name": "typo3/minimal",
+            "version": "v12.4.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/TYPO3/minimal.git",
+                "reference": "07b5d521858532f893908bd50803c6bb5e0169e4"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/TYPO3/minimal/zipball/07b5d521858532f893908bd50803c6bb5e0169e4",
+                "reference": "07b5d521858532f893908bd50803c6bb5e0169e4",
+                "shasum": ""
+            },
+            "require": {
+                "typo3/cms-backend": "^12.4",
+                "typo3/cms-core": "^12.4",
+                "typo3/cms-extbase": "^12.4",
+                "typo3/cms-extensionmanager": "^12.4",
+                "typo3/cms-filelist": "^12.4",
+                "typo3/cms-fluid": "^12.4",
+                "typo3/cms-frontend": "^12.4",
+                "typo3/cms-install": "^12.4"
+            },
+            "type": "metapackage",
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "GPL-2.0-or-later"
+            ],
+            "authors": [
+                {
+                    "name": "TYPO3 CMS Core Team",
+                    "homepage": "https://forge.typo3.org/projects/typo3cms-core",
+                    "role": "Developer"
+                },
+                {
+                    "name": "The TYPO3 Community",
+                    "homepage": "https://typo3.org/community/",
+                    "role": "Contributor"
+                }
+            ],
+            "description": "Minimal required set of TYPO3 extensions",
+            "support": {
+                "chat": "https://typo3.org/help",
+                "docs": "https://docs.typo3.org",
+                "issues": "https://forge.typo3.org",
+                "source": "https://github.com/typo3/typo3"
+            },
+            "time": "2023-04-25T05:34:21+00:00"
         },
         {
             "name": "typo3fluid/fluid",

@@ -2,8 +2,8 @@
   "name": "portrino/t3cmd24",
   "require": {
     "typo3/cms-base-distribution": "^12.4",
+    "typo3/cms-introduction": "^4.6",
 
-    "bk2k/bootstrap-package": "^14.0",
     "b13/container": "^2.3",
     "helhum/typo3-console": "^8.1"
   },

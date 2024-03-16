@@ -2,7 +2,7 @@
 return [
     'BE' => [
         'debug' => true,
-        'installToolPassword' => '$argon2i$v=19$m=65536,t=16,p=1$SFpBUVovTlA5SVc5OGZCUA$MeJViP/o7wkkcfTO/PmQRma840cIkfnuFe3bTRSas/I',
+        'installToolPassword' => '$argon2i$v=19$m=65536,t=16,p=1$SWRlWjRlMEFNNWVTN0VWTw$1m6A6xK7DyKT2e4wDhb8h8Ou1OnLqy+e32mhVEJfSL0',
         'passwordHashing' => [
             'className' => 'TYPO3\\CMS\\Core\\Crypto\\PasswordHashing\\Argon2iPasswordHash',
             'options' => [],
@@ -39,6 +39,27 @@ return [
         'extensionmanager' => [
             'automaticInstallation' => '1',
             'offlineMode' => '0',
+        ],
+        'indexed_search' => [
+            'catdoc' => '/usr/bin/',
+            'debugMode' => '0',
+            'deleteFromIndexAfterEditing' => '1',
+            'disableFrontendIndexing' => '0',
+            'enableMetaphoneSearch' => '1',
+            'flagBitMask' => '192',
+            'fullTextDataLength' => '0',
+            'ignoreExtensions' => '',
+            'indexExternalURLs' => '0',
+            'maxAge' => '0',
+            'maxExternalFiles' => '5',
+            'minAge' => '24',
+            'pdf_mode' => '20',
+            'pdftools' => '/usr/bin/',
+            'ppthtml' => '/usr/bin/',
+            'unrtf' => '/usr/bin/',
+            'unzip' => '/usr/bin/',
+            'useMysqlFulltext' => '0',
+            'xlhtml' => '/usr/bin/',
         ],
     ],
     'FE' => [
@@ -84,6 +105,7 @@ return [
         'transport_smtp_username' => '',
     ],
     'SYS' => [
+        'UTF8filesystem' => true,
         'caching' => [
             'cacheConfigurations' => [
                 'hash' => [
@@ -111,11 +133,11 @@ return [
         ],
         'devIPmask' => '*',
         'displayErrors' => 1,
-        'encryptionKey' => 'a0cb208397e2f9b981e9596c97e47be4a31784829ca3094f23c584fd3fc5bfa31c46cb190659a68cfeefffa1965136ac',
+        'encryptionKey' => 'e39e4c0eddae7ad52fa30208247c10359dc525f2071dbcd238bcf306d4aeb4240d4e3bb28eb5877e9b18e686ee6616a0',
         'exceptionalErrors' => 12290,
         'features' => [
+            'security.backend.enforceContentSecurityPolicy' => true,
             'security.usePasswordPolicyForFrontendUsers' => true,
-            'yamlImportsFollowDeclarationOrder' => true,
         ],
         'sitename' => 'T3CMD',
         'systemMaintainers' => [
