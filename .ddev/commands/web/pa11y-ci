@@ -1,0 +1,9 @@
+#!/bin/bash
+
+# This assumes that the pa11y-ci command will be in the $PATH
+
+## Description: Run Pa11y CI (pa11y-ci) command inside the web container
+## Usage: pa11y-ci [args]
+## Example: "ddev pa11y-ci help"
+
+pa11y-ci "$@"

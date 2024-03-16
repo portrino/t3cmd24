@@ -1,0 +1,24 @@
+{
+    "defaults": {
+        "chromeLaunchConfig": {
+            "args": [
+                "--headless",
+                "--ignore-certificate-errors",
+                "--no-sandbox"
+            ]
+        },
+        "hideElements": "#cookieconsent",
+        "reporters": [
+            "cli",
+            [
+                "pa11y-ci-reporter-html",
+                {
+                    "destination": "var/pa11y-report"
+                }
+            ]
+        ]
+    },
+    "urls": [
+        "https://t3cmd24.ddev.site/"
+    ]
+}
